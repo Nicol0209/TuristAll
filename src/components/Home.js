@@ -8,7 +8,7 @@ import "../styles/Home.css";
 const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
-  const [menuOpen, setMenuOpen] = useState(false); // Estado para menú en móviles
+  const [menuOpen, setMenuOpen, traduccionhomepage] = useState(false); // Estado para menú en móviles
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -48,6 +48,19 @@ const Home = () => {
             </li>
           </ul>
         </nav>
+        <nav className={traduccionhomepage ? "nav-menu open" : "nav-menu"}>
+          <ul>
+            <li><a href="#"></a></li>
+            <li><a href="#">Ciudades Turísticas</a></li>
+            <li><a href="#">Paquetes</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li>
+              <button onClick={handleLogout} className="btn-logout">
+                    <i className="bi bi-box-arrow-right"></i> Cerrar sesión</button>
+            </li>
+          </ul>
+        </nav>
+        
       </header>
 
       {/* Contenido Principal */}
