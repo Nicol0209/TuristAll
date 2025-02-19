@@ -1,0 +1,75 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f1f1f1;
+}
+
+/* Estilo para elegir el idioma */
+.login-card {
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 20px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #818181;
+    transition: all 0.5s;
+}
+
+.login-card h2 {
+    color: #0057B8;
+}
+
+/* Estilos para los botones */
+.btn-google {
+    background-color: #222;
+    border-color: #222;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-google:hover {
+    background-color: #3a3a3a;
+    border-color: #3a3a3a;
+    color: white;
+}
+
+.btn-facebook {
+    background-color: #0057B8;
+    border-color: #0057B8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-facebook:hover {
+    background-color: #2376d4;
+    border-color: #2376d4;
+    color: white;
+}
+
+.btn-twitter {
+    background-color: #129af5;
+    border-color: #129af5;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-twitter:hover{
+    background-color: #37aaf7;
+    border-color: #37aaf7;
+    color: white;
+}

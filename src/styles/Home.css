@@ -1,0 +1,110 @@
+/* Estilos del Menú Superior */
+.top-menu {
+    background-color: #0057B8; 
+    color: white;
+    padding: 20px 20px;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Espaciado del Contenido Principal*/
+.main-content {
+    margin-top: 80px; 
+    padding: 20px;
+}
+
+/* Estilo del Logo */
+.logo {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+/* Botón de Menú para Móviles */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estilo para las Opciones del Menú */
+.nav-menu {
+    display: flex;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    margin-left: 20px;
+}
+
+.nav-menu ul li a {
+    color: rgb(232, 231, 231); 
+    text-decoration: none; 
+    padding: 5px;
+    transition: color 0.5s, border-bottom 0.5s;
+}
+
+.nav-menu ul li a:hover {
+    color: white;
+    border-bottom: 1px solid white;
+}
+
+/* Estilo Botón para Cerrar Sesión */
+.btn-logout {
+    background-color: #0057B8;
+    color: white;
+    font-weight: 500;
+    border: none;
+    padding: 1px 10px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #0e74e9;
+    transition: all 0.5s;
+}
+
+/* RESPONSIVE */
+/* Moviles */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Muestra el botón hamburguesa */
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #0057B8;
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+    }
+
+    .nav-menu ul li {
+        margin: 10px 0;
+    }
+}
