@@ -5,11 +5,11 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Home.css";
+import "../styles/Paquetes.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
-const Home = () => {
+const Paquetes = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,14 +38,17 @@ const Home = () => {
 
   //Para redireccionamiento de todas la spaginas 
   const handleRedirect = () => {
-    navigate('/Contacto'); // Redirige a /Contactos
+    navigate('/Contactos'); // Redirige a /Contactos
     navigate('/Paquetes'); //Regirige a paquetes 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+    navigate('/CiudadesTuristicas'); // Redirige a ciudades turisticas 
+    navigate('/Home'); // Redirige a la pagina de inicio turisticas 
+
 
   };
 
 
-  // Configuración de los carrusel para las tarjetas
+
+  // Configuración de los carrusel
   const carruselConfig = {
     dots: true, // Muestra indicadores de navegación
     infinite: true, // Se repite cuando llega al final
@@ -82,27 +85,6 @@ const Home = () => {
     ]
   };
 
-  // Configuración carrusel de la imagen 
-  const carruselFullImagen = {
-    dots: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024, // Tablets
-        settings: { slidesToShow: 1 }
-      },
-      {
-        breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: false } // Ocultar dots en móviles
-      }
-    ]
-  };
 
   // Función para cambiar la imagen de la bandera segun el idioma seleccionado
   useEffect(() => {
@@ -121,11 +103,11 @@ const Home = () => {
     <div className="home-container">
       {/* Menú Superior */}
       <header className="header">
-        <div className="menu-up">
+        <div className="top-menu">
           <img src="Logo.png" alt="Logo" className="logo" />
           <div className="search">
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder={t("search")} className="search-input" />
+            <input type="text" placeholder={t("search")} className="search-bar" />
           </div>
           <button onClick={handleLogout} className="btn-logout">
             {t("logout")} <i className="fa-solid fa-arrow-right-from-bracket" />
@@ -140,18 +122,14 @@ const Home = () => {
           >
             ☰
           </button>
-          {/* Segundo navar y redireccionamientos */}
-          <ul className={menuOpen ? "menu-options open" : "menu-options"}>
+           {/* Segundo navar y redireccionamientos */}
+          <ul className={menuOpen ? "menu open" : "menu"}>
             <li><a href="./home" onClick={handleRedirect}><i className="fa-solid fa-house-user" /> {t("menu.home")}</a></li>
             <li><a href="./Ciudadesturisticas" onClick={handleRedirect}><i className="fa-solid fa-city" /> {t("menu.cities")}</a></li>
             <li><a href="./Paquetes" onClick={handleRedirect} ><i className="fa-solid fa-box" /> {t("menu.packages")}</a></li>
-            <li><a href="./Restaurantes" onClick={handleRedirect} ><i className="fa-solid fa-utensils" /> {t("menu.restaurant")}</a></li>
-            <li><a href="./Hoteles" onClick={handleRedirect}><i class="fa-solid fa-hotel"></i> {t("menu.hotels")}</a></li>
-            <li><a href="./Lugares" onClick={handleRedirect} ><i class="fa-solid fa-ranking-star"></i> {t("menu.places")}</a></li>
-            <li><a href="./Contacto" onClick={handleRedirect} ><i class="fa-solid fa-address-book"></i> {t("menu.contact")}</a></li>
+            <li><a href="./Contacto" onClick={handleRedirect}><i className="fa-solid fa-address-book" />{t("menu.contact")} </a></li>
 
-
-            <div className="language-select-container">
+            <div className="identificadoridioma">
               <div className="form-group mt-1">
                 <select
                   className="language-select form-select form-select-sm"
@@ -172,28 +150,15 @@ const Home = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <div className="shadow p-1 mt-5 mb-1 text-center">
+        <div className="seccion shadow p-4 text-center">
           {user ? (
-            <p className="fs-5 fw-bold m-4 p-4 text-secondary">{user.displayName} {t("welcome_message")}</p>
+            <p className="fs-5 fw-bold">{user.displayName} {t("welcome_message")}</p>
           ) : (
             <p className="fs-5 text-muted">{t("description")}</p>
-          )}</div>
-        <Slider {...carruselFullImagen} className="carrusel-full">
-          <div>
-            <img src="/images/Ciudades/Bogota.jpg" alt="Imagen de Bogotá" className="full-img img-fluid" />
-          </div>
-          <div>
-            <img src="/images/Ciudades/Santa Marta.jpg" alt="Imagen de Santa Marta" className="full-img img-fluid" />
-          </div>
-          <div>
-            <img src="/images/Ciudades/Cali.jpg" alt="Imagen de Cali" className="full-img img-fluid" />
-          </div>
-        </Slider>
-
-        <div className="seccion1 shadow p-4 text-center">
-
+          )}
+          <hr />
           <h2 className="text-start">{t("title1")}</h2>
-          {/* Carrusel de tarjetas seccion búsquedas*/}
+          {/* Carrusel de tarjetas */}
           <Slider {...carruselConfig}>
             {t("cards", { returnObjects: true }).map((card, index) => (
               <div key={index} className="card">
@@ -207,7 +172,7 @@ const Home = () => {
           <br /><br />
           <div className="seccion2">
             <h2 className="text-start text-style2">{t("title2")}</h2>
-            {/* Carrusel de tarjetas sección rankigs*/}
+            {/* Carrusel de tarjetas */}
             <Slider {...carruselConfig}>
               {t("cards2", { returnObjects: true }).map((card, index) => (
                 <div key={index} className="card">
@@ -221,7 +186,7 @@ const Home = () => {
             <br />
           </div>
           <h2 className="text-start">{t("title3")}</h2>
-          {/* Carrusel de tarjetas sección promos y descuentos*/}
+          {/* Carrusel de tarjetas */}
           <Slider {...carrusel3Config}>
             {t("cards3", { returnObjects: true }).map((card, index) => (
               <div key={index} className="card">
@@ -253,4 +218,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Paquetes;

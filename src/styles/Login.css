@@ -8,7 +8,7 @@
 }
 
 /* Estilo para elegir el idioma */
-.login-card {
+.card-login {
     max-width: 400px;
     padding: 20px;
     border-radius: 8px;
@@ -21,8 +21,8 @@
     transition: all 0.5s;
 }
 
-.login-card h2 {
-    color: #0057B8;
+.card-login h2 {
+    color: #004da5;
 }
 
 /* Estilos para los botones */
@@ -72,4 +72,22 @@
     background-color: #37aaf7;
     border-color: #37aaf7;
     color: white;
+}
+
+.btn-style1:hover{
+    background-color: #015ec9;
+    color: white;
+}
+
+.btn-style2 {
+    background-color: #045abd;
+    color: #fff;
+}
+
+
+.btn-style2:hover{
+    background-color: #015ec9;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s;
 }

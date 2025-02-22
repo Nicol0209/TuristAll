@@ -10,27 +10,29 @@ const resources = {
   en: { translation: en },
   es: { translation: es },
   fr: { translation: fr },
-  ch: { translation: ch }
+  ch: { translation: ch },
 };
 
 // 🔹 Detectar idioma guardado o usar el del navegador
-const savedLanguage = localStorage.getItem("language") || navigator.language.split("-")[0] || "en";
+const savedLanguage = localStorage.getItem('language') || navigator.language.split('-')[0] || 'en';
 
+// 🔹 Inicialización de i18next con el idioma guardado en localStorage
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: savedLanguage, // 🔹 Usa el idioma guardado o el del navegador
-    fallbackLng: "en",
+    lng: savedLanguage,  // Usar el idioma guardado en localStorage
+    fallbackLng: 'es',  // Si no se encuentra el idioma, usa español como fallback
+    debug: false,
     interpolation: {
-      escapeValue: false
-    }
+      escapeValue: false,  // React ya se encarga de evitar XSS
+    },
   });
 
 // 🔹 Función para cambiar y guardar el idioma
 export const changeLanguage = (lng) => {
-  i18n.changeLanguage(lng);
-  localStorage.setItem("language", lng); // 🔹 Guarda el idioma seleccionado
+  i18n.changeLanguage(lng);  // Cambiar el idioma
+  localStorage.setItem('language', lng);  // Guardar el idioma seleccionado en localStorage
 };
 
 export default i18n;

@@ -53,15 +53,15 @@ const Login = () => {
 
   return (
     <div className="login-container">
-      <div className="card login-card">
+      <div className="card-login">
         <h2 className="mb-3">{t("welcome")}</h2>
         
         {/* Selector de idioma con Bootstrap */}
         <div className="btn-group mb-3">
-          <button onClick={() => changeLanguage("en")} className={`btn ${i18n.language === "en" ? "btn-primary" : "btn-outline-secondary"}`}>🇬🇧 EN</button>
-          <button onClick={() => changeLanguage("es")} className={`btn ${i18n.language === "es" ? "btn-primary" : "btn-outline-secondary"}`}>🇪🇸 ES</button>
-          <button onClick={() => changeLanguage("fr")} className={`btn ${i18n.language === "fr" ? "btn-primary" : "btn-outline-secondary"}`}>🇫🇷 FR</button>
-          <button onClick={() => changeLanguage("ch")} className={`btn ${i18n.language === "ch" ? "btn-primary" : "btn-outline-secondary"}`}>🇨🇳 CH</button>
+          <button onClick={() => changeLanguage("en")} className={`btn ${i18n.language === "en" ? "btn-style1" : "btn-outline-secondary"}`}>🇬🇧 EN</button>
+          <button onClick={() => changeLanguage("es")} className={`btn ${i18n.language === "es" ? "btn-style1" : "btn-outline-secondary"}`}>🇪🇸 ES</button>
+          <button onClick={() => changeLanguage("fr")} className={`btn ${i18n.language === "fr" ? "btn-style1" : "btn-outline-secondary"}`}>🇫🇷 FR</button>
+          <button onClick={() => changeLanguage("ch")} className={`btn ${i18n.language === "ch" ? "btn-style1" : "btn-outline-secondary"}`}>🇨🇳 CH</button>
         </div>
 
         {user ? (
@@ -83,7 +83,7 @@ const Login = () => {
             {/* Mensaje de error en caso de que ocurra un fallo en la autenticación */}
             {error && <p className="text-danger">{error}</p>}
             {/* Botón para iniciar sesión o registrarse */}
-            <button type="submit" className="btn btn-primary w-100" disabled={user}>
+            <button type="submit" className="btn btn-style2 w-100" disabled={user}>
               {isRegistering ? t("register") : t("signIn")}
             </button>
             {/* Botón para alternar entre modo inicio de sesión y registro */}

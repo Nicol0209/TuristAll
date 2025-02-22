@@ -4,19 +4,24 @@
   "icons": [
     {
       "src": "Logo.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "sizes": "64x64",
+      "type": "image/png"
     },
     {
       "src": "Logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "32x32",
+      "type": "image/png"
     },
     {
       "src": "Logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+      "sizes": "24x24",
+      "type": "image/png"
+    },
+    {
+      "src": "Logo.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }    
   ],
   "start_url": ".",
   "display": "standalone",
