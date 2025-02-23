@@ -1,0 +1,59 @@
+.footer {
+    width: 100%;
+    background-color: #0057B8;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+/* Contenedor general */
+.footer-content {
+    display: flex;
+    flex-direction: column !important; /* 🔥 FORZAR SIEMPRE COLUMNA */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Cada sección dentro del footer */
+.footer-section {
+    width: 100%;
+    text-align: center;
+}
+
+/* Logo */
+.logo-footer {
+    width: 120px;
+}
+
+/* Navegación */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Mantiene los enlaces en columna */
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Texto de derechos */
+.footer-text {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Asegurar que en pantallas grandes siga en columna */
+@media (min-width: 768px) {
+    .footer-content1 {
+        flex-direction: column; /* Forzar columna */
+    }
+}

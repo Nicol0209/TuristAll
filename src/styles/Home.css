@@ -21,7 +21,8 @@ body {
     width: 100%;
     background-color: #0057B8;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    z-index: 1000;
+    /* Asegura que esté sobre otros elementos */
 }
 
 /* MENÚ SUPERIOR */
@@ -158,7 +159,8 @@ body {
     background-position: left 8px center;
     background-size: 20px 15px;
     padding-left: 35px;
-    appearance: auto;/* Restaura el icono nativo */
+    appearance: auto;
+    /* Restaura el icono nativo */
 }
 
 /* CONTENIDO PRINCIPAL */
@@ -169,32 +171,132 @@ body {
 
 /* CARRUSEL DE IMAGENES */
 .carrusel-full {
-    width: 100vw; /* Ocupa todo el ancho de la pantalla */
-    height: 70vh; /* Puedes ajustar la altura */
+    width: 100vw;
+    height: 70vh;
     overflow: hidden;
 }
-  
+
+.carousel-slide {
+    position: relative;
+    /* Para que el overlay se posicione correctamente */
+    width: 100%;
+    height: 70vh;
+}
+
 .full-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Asegura que la imagen se ajuste bien */
+    object-fit: cover;
+    filter: brightness(0.6);
+}
+
+/* Para el texto y el botón */
+.carousel-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.carousel-title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.btn-carousel {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-carousel:hover {
+    background: #0354af;
+    color: rgb(216, 216, 216);
+    transition: all 0.3s;
+}
+
+.carousel-p{
+    font-size: 25px;
+}
+
+/* Carrusel2 */
+.carousel-slide2 {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+}
+
+/* Para el texto y el botón */
+.carousel-overlay2 {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    width: 80%;
+}
+
+.carousel-title2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-p2{
+    font-size: 20px;
+}
+
+
+/* CARRUSEL DE IMAGENES */
+.seccion1 {
+    margin-left: -50vw;
+    left: 50%;
+    position: relative;
+    /* Evita que se desplace mal */
+    background-color: transparent;
 }
 
 /* SECCIÓN BÚSQUEDAS DESTACADAS */
-.seccion1 {
+.seccion2 {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
 /* SECCIÓN DEL RANKING */
-.seccion2 {
-    width: 100vw; /* 100% del viewport width */
-    margin-left: -50vw; /* Para contrarrestar márgenes heredados */
+.seccion3 {
+    width: 100vw;
+    margin-left: -50vw;
     left: 50%;
-    position: relative; /* Evita que se desplace mal */
+    position: relative;
+    /* Evita que se desplace mal */
     background-color: #dfd2ac;
-    padding: 20px 0; /* Espacio arriba y abajo */
+    padding: 20px 0;
+    /* Espacio arriba y abajo */
+}
+
+/* CARRUSEL DE COMENTARIOS */
+.seccion4 {
+    width: 100vw;
+    margin-left: -50vw;
+    left: 50%;
+    position: relative;
+    /* Evita que se desplace mal */
+    background-color: transparent;
+    padding: 20px 0;
+    /* Espacio arriba y abajo */
 }
 
 /* TARJETAS - CARDS */
@@ -221,12 +323,13 @@ body {
     min-height: 50px;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal; /* Permite que el texto haga salto de línea */
-    word-wrap: break-word; /* Asegura que el texto se ajuste dentro del contenedor */
+    white-space: normal;
+    /* Permite que el texto haga salto de línea */
+    word-wrap: break-word;
+    /* Asegura que el texto se ajuste dentro del contenedor */
     text-align: center;
     max-width: 100%;
 }
-
 
 .card img {
     width: 100%;
@@ -262,8 +365,10 @@ body {
 /* Si las flechas son imágenes SVG, aplica filtro */
 .slick-prev::before,
 .slick-next::before {
-    color: #045abd; /* Asegura que se cambie el color */
-    font-size: 25px; /* Ajusta el tamaño */
+    color: #045abd;
+    /* Asegura que se cambie el color */
+    font-size: 25px;
+    /* Ajusta el tamaño */
 }
 
 /* Posicionar las flechas dentro del carrusel */
@@ -283,61 +388,20 @@ body {
 }
 
 .slick-prev {
-    left: 3px; 
+    left: 3px;
 }
 
 .slick-next {
-    right: 3px; 
-}
-
-/* FOOTER */
-.footer {
-    width: 100%;
-    background-color: #0057B8;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    margin-top: auto;
-    /* Asegura que el footer se mantenga abajo */
-}
-
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo-footer {
-    width: 120px;
-}
-
-.footer-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-}
-
-.footer-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.footer-text {
-    font-size: 0.9rem;
-    opacity: 0.8;
+    right: 3px;
 }
 
 /* TEXTOS */
 h2 {
     font-weight: bold;
     margin: 20px 0 40px;
-} 
+}
 
-.text-style2{
+.text-style2 {
     color: #5f5027;
     margin: 10px 40px;
 }
@@ -348,18 +412,18 @@ h2 {
     color: #fff;
 }
 
-.btn-style1:hover{
+.btn-style1:hover {
     background-color: #015ec9;
     color: white;
     transition: all 0.3s;
 }
 
-.btn-style3{
+.btn-style3 {
     background-color: #f5a22d;
     color: white;
 }
 
-.btn-style3:hover{
+.btn-style3:hover {
     background-color: #ffb246;
     color: white;
     font-weight: bold;
@@ -402,12 +466,6 @@ h2 {
         font-size: 0.7rem;
     }
 
-    .footer-content {
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: center;
-    }
-
     .language-select-container {
         position: relative;
         /* Deja de ser absoluto */
@@ -429,23 +487,37 @@ h2 {
         height: 30px;
         font-size: 20px;
     }
+
     .slick-prev {
         left: -5px;
     }
+
     .slick-next {
         right: -5px;
     }
 
     /* Carrusel de imagenes */
     .carrusel-full {
-        height: 40vh; /* Ajusta la altura en móviles */
+        height: 40vh;
+        /* Ajusta la altura en móviles */
     }
 
     .full-img {
         width: 100%;
         height: 500px;
-        object-fit: cover; /* Asegura que la imagen se ajuste bien */
+        object-fit: cover;
+        /* Asegura que la imagen se ajuste bien */
     }
+
+    .carousel-title {
+        font-size: 2rem;
+    }
+
+    .btn-carousel {
+        font-size: 0.9rem;
+        padding: 8px 16px;
+    }
+
 }
 
 /* Responsivo para pantallas pequeñas */
@@ -465,6 +537,15 @@ h2 {
     }
 
     .carrusel-full {
-        height: 50vh; /* Ajusta la altura en tablets */
+        height: 60vh;
+    }
+
+    .carousel-title {
+        font-size: 2.5rem;
+    }
+
+    .btn-carousel {
+        font-size: 1rem;
+        padding: 10px 20px;
     }
 }

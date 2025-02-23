@@ -13,6 +13,11 @@ const ch = {
   welcome_message: "欢迎来到 Turistall",
   description: "探索最佳旅游目的地。",
   title1: "热门搜索",
+  titleCiudadesTuristicas: "觀光城市",
+  titleLugares: "探索旅遊勝地",
+  titleHoteles: "飯店",
+  titleRestaurantes: "餐廳",
+  titlePaquetes: "",
   search: "搜索...",
   menu: {
     home: "首页",
@@ -56,8 +61,8 @@ const ch = {
   ],
 
   footer: {
-    terms: "条款和条件",
-    privacy: "隐私政策",
+    terms_conditions: "条款和条件",
+    privacy_policy: "隐私政策",
     rights: "版权所有。"
   }
 };

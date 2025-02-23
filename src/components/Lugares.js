@@ -5,13 +5,13 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Paquetes.css";
+import "../styles/Lugares.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
 import Footer from "./Footer";
 
-const Paquetes = () => {
+const Lugares = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -210,7 +210,7 @@ const Paquetes = () => {
 
         <div className="seccion2 shadow p-4 text-center">
 
-          <h2 className="text-start">{t("titlePaquetes")}</h2>
+          <h2 className="text-start">{t("titleLugares")}</h2>
           {/* Carrusel de tarjetas seccion búsquedas*/}
           
           <br /><br />
@@ -224,4 +224,4 @@ const Paquetes = () => {
   );
 };
 
-export default Paquetes;
+export default Lugares;

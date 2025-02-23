@@ -13,6 +13,11 @@ const fr = {
   welcome_message: "Bienvenue sur Turistall",
   description: "Explorez les meilleures destinations touristiques.",
   title1: "Recherches en vedette",
+  titleCiudadesTuristicas: "Villes touristiques",
+  titleLugares: "Explorez les lieux touristiques",
+  titleHoteles: "Hôtels",
+  titleRestaurantes: "Restaurants",
+  titlePaquetes: "Forfaits",
   search: "Rechercher...",
   menu: {
     home: "Accueil",
@@ -56,8 +61,8 @@ const fr = {
   ],
 
   footer: {
-    terms: "Termes et Conditions",
-    privacy: "Politique de Confidentialité",
+    terms_conditions: "Termes et Conditions",
+    privacy_policy: "Politique de Confidentialité",
     rights: "Tous droits réservés."
   }
 };

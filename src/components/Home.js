@@ -9,6 +9,8 @@ import "../styles/Home.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
+import Footer from "./Footer";
+
 const Home = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -41,6 +43,10 @@ const Home = () => {
     navigate('/Contacto'); // Redirige a /Contactos
     navigate('/Paquetes'); //Regirige a paquetes 
     navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+    navigate('/Restaurantes'); // Redirige a Restaurantes
+    navigate('/Lugares'); // Redirige a Lugares 
+    navigate('/Hoteles'); // Redirige a Hoteles
+
 
   };
 
@@ -100,6 +106,27 @@ const Home = () => {
       {
         breakpoint: 768, // Móviles
         settings: { slidesToShow: 1, dots: false } // Ocultar dots en móviles
+      }
+    ]
+  };
+
+  const carruselFullImagen2 = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablets
+        settings: { slidesToShow: 1 }
+      },
+      {
+        breakpoint: 768, // Móviles
+        settings: { slidesToShow: 1, dots: true }
       }
     ]
   };
@@ -177,20 +204,30 @@ const Home = () => {
             <p className="fs-5 fw-bold m-4 p-4 text-secondary">{user.displayName} {t("welcome_message")}</p>
           ) : (
             <p className="fs-5 text-muted">{t("description")}</p>
-          )}</div>
-        <Slider {...carruselFullImagen} className="carrusel-full">
-          <div>
-            <img src="/images/Ciudades/Bogota.jpg" alt="Imagen de Bogotá" className="full-img img-fluid" />
-          </div>
-          <div>
-            <img src="/images/Ciudades/Santa Marta.jpg" alt="Imagen de Santa Marta" className="full-img img-fluid" />
-          </div>
-          <div>
-            <img src="/images/Ciudades/Cali.jpg" alt="Imagen de Cali" className="full-img img-fluid" />
-          </div>
-        </Slider>
+          )}
+        </div>
 
-        <div className="seccion1 shadow p-4 text-center">
+        <div className="seccion1">
+          <Slider {...carruselFullImagen} className="carrusel-full">
+            {[
+              { img: "/images/Ciudades/Bogota.jpg", title: "¿Ya conoces Bogotá? ", link: "/Bogota" },
+              { img: "/images/Ciudades/Santa Marta.jpg", title: "Visita Santa Marta y sus paisajes inolvidables", link: "/SantaMarta" },
+              { img: "/images/Ciudades/Barranquilla2.jpg", title: "Explora Barranqulla la ciudad de la belleza arquitectónica", link: "/Cali" }
+            ].map((slide, index) => (
+              <div key={index} className="carousel-slide">
+                {/* Imagen de fondo */}
+                <img src={slide.img} alt={slide.title} className="full-img" />
+                {/* Contenedor del texto y el botón */}
+                <div className="carousel-overlay">
+                  <h2 className="carousel-title">{slide.title}</h2>
+                  <a href={slide.link} className="btn-carousel">Ver más</a>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+
+        <div className="seccion2 shadow p-4 text-center">
 
           <h2 className="text-start">{t("title1")}</h2>
           {/* Carrusel de tarjetas seccion búsquedas*/}
@@ -205,7 +242,7 @@ const Home = () => {
             ))}
           </Slider>
           <br /><br />
-          <div className="seccion2">
+          <div className="seccion3">
             <h2 className="text-start text-style2">{t("title2")}</h2>
             {/* Carrusel de tarjetas sección rankigs*/}
             <Slider {...carruselConfig}>
@@ -233,22 +270,64 @@ const Home = () => {
             ))}
           </Slider>
           <br />
+          <div className="seccion4">
+            <Slider {...carruselFullImagen2} className="carrusel-full">
+              {[
+                {
+                  img: "/images/testimonios/Colombiano1.jpg",
+                  title: "María de España: 'Una experiencia inolvidable en Bogotá'",
+                  description: "María quedó maravillada con la historia y cultura de la ciudad, visitando lugares como La Candelaria y el Museo del Oro. Se sintió como en casa.",
+                  city: "Bogota"
+                },
+                {
+                  img: "/images/testimonios/Colombiano2.jpg",
+                  title: "Carlos de Argentina: 'Santa Marta, el paraíso escondido'",
+                  description: "Carlos disfrutó de las playas cristalinas y las montañas de Santa Marta. Enamoró con la Sierra Nevada y las maravillas naturales del Parque Tayrona.",
+                  city: "SantaMarta"
+                },
+                {
+                  img: "/images/testimonios/Colombiano3.jpg",
+                  title: "Lucía de México: 'Barranquilla, una ciudad llena de vida y color'",
+                  description: "Lucía se asombró con la calidez de la gente y la arquitectura de Barranquilla. Además, disfrutó de su gastronomía única y su vibrante Carnaval.",
+                  city: "Barranquilla"
+                },
+                {
+                  img: "/images/testimonios/Colombiano4.jpeg",
+                  title: "Andrés de Chile: 'Cartagena, historia y romance a la orilla del mar'",
+                  description: "Andrés visitó la ciudad amurallada y se sintió como un viajero en el tiempo, explorando la arquitectura colonial y disfrutando de las playas caribeñas.",
+                  city: "Cartagena"
+                },
+                {
+                  img: "/images/testimonios/Colombiano5.jpg",
+                  title: "Sofía de Brasil: 'Cali, la salsa y el ritmo de la vida'",
+                  description: "Sofía se sumergió en el corazón de la salsa. Disfrutó de las noches de fiesta, la gastronomía caleña, y los parques naturales de la ciudad.",
+                  city: "Cali"
+                },
+                {
+                  img: "/images/testimonios/Colombiano6.jpg",
+                  title: "Diego de Perú: 'Medellín, innovación y cultura en cada rincón'",
+                  description: "Diego quedó encantado con la transformación de Medellín, visitando el Parque Arví, el Museo de Antioquia y disfrutando de la calidez de su gente.",
+                  city: "Medellín"
+                }
+              ].map((slide, index) => (
+                <div key={index} className="carousel-slide2">
+                  {/* Imagen de fondo */}
+                  <img src={slide.img} alt={slide.title} className="full-img" />
+                  {/* Contenedor del texto y el botón */}
+                  <div className="carousel-overlay2">
+                    <h2 className="carousel-title2">{slide.title}</h2>
+                    <p className="carousel-p2">{slide.description}</p>
+                    <p className="carousel-p2 fw-bold">{slide.city}</p>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <img src="Logo.png" alt="Logo" className="logo-footer" />
-          <nav className="footer-nav">
-            <ul>
-              <li><a href="#">{t("footer.terms")}</a></li>
-              <li><a href="#">{t("footer.privacy")}</a></li>
-            </ul>
-          </nav>
-          <p className="footer-text">© 2025 Turistall - {t("footer.rights")}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

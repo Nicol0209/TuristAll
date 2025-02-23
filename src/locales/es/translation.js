@@ -13,6 +13,11 @@ const es = {
   welcome_message: "Bienvenid@, a Turistall",
   description: "Explora los mejores destinos turísticos.",
   title1: "Búsquedas Destacadas",
+  titleCiudadesTuristicas: "Ciudades Turisticas",
+  titleLugares: "Explora Lugares Turisticos",
+  titleHoteles: "Hoteles",
+  titleRestaurantes: "Restaurantes",
+  titlePaquetes: "Paquetes",
   search: "Buscar...",
   menu: {
     home: "Inicio",
@@ -54,10 +59,19 @@ const es = {
     { title: "Descuento en Caño Cristales", description: "Reserva con anticipación y obtén hasta 30% de descuento.", image: "Caño Cristales promo.jpeg", category: "Promociones" },
     { title: "City Tour en Bogotá", description: "Tour por los principales sitios de la capital con 25% de descuento.", image: "Bogota promo.jpg", category: "Promociones" }
   ],
-
+  titlecontact: "Contactanos",
+  cardscontact:[
+    { title: "Paquete Cartagena Todo Incluido", description: "5 días y 4 noches con vuelos y comidas incluidas.", image: "Cartagena promo.jpg", category: "Promociones" },
+    { title: "Descuento en el Parque Tayrona", description: "Entrada con 20% de descuento para nacionales y extranjeros.", image: "Tayrona promo.jpg", category: "Promociones" },
+    { title: "Hospedaje en Medellín", description: "Hoteles 4 estrellas con hasta 40% de descuento en reservas anticipadas.", image: "Medellin promo.jpg", category: "Promociones" },
+    { title: "San Andrés Todo Incluido", description: "Paquete de 4 días con hospedaje y tours. Desde $1.200.000 COP.", image: "San Andres promo.jpg", category: "Promociones" },
+    { title: "2x1 en Tour a la Catedral de Sal", description: "Compra un boleto y recibe otro gratis para este increíble destino.", image: "Catedral Sal promo.jpg", category: "Promociones" },
+    { title: "Descuento en Caño Cristales", description: "Reserva con anticipación y obtén hasta 30% de descuento.", image: "Caño Cristales promo.jpeg", category: "Promociones" },
+    { title: "City Tour en Bogotá", description: "Tour por los principales sitios de la capital con 25% de descuento.", image: "Bogota promo.jpg", category: "Promociones" }
+  ],
   footer: {
-    terms: "Términos y Condiciones",
-    privacy: "Política de Privacidad",
+    terms_conditions: "Términos y Condiciones",
+    privacy_policy: "Política de Privacidad",
     rights: "Todos los derechos reservados."
   }
 

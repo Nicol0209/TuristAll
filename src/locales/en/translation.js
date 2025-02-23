@@ -13,6 +13,11 @@ const en = {
   welcome_message: "Welcome to Turistall",
   description: "Explore the best tourist destinations.",
   title1: "Featured Searches",
+  titleCiudadesTuristicas: "Tourist Cities",
+  titleLugares: "Explore Tourist Places",
+  titleHoteles: "Hotels",
+  titleRestaurantes: "Restaurants",
+  titlePaquetes: "Packages",
   search: "Search...",
   menu: {
     home: "Home",
@@ -54,10 +59,17 @@ const en = {
     { title: "Discount at Caño Cristales", description: "Book in advance and get up to 30% off.", image: "Caño Cristales promo.jpeg", category: "Promociones" },
     { title: "Bogotá City Tour", description: "Tour of the main sites of the capital with a 25% discount.", image: "Bogota promo.jpg", category: "Promociones" }
   ],
+  titlecontacto: "Contactenos",
+  cardscontact: [
+
+
+  ],
+  
+
 
   footer: {
-    terms: "Terms and Conditions",
-    privacy: "Privacy Policy",
+    terms_conditions: "Terms and Conditions",
+    privacy_policy: "Privacy Policy",
     rights: "All rights reserved."
   }
 };

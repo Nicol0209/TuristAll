@@ -9,6 +9,8 @@ import "../styles/Ciudadesturisticas.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
+import Footer from "./Footer";
+
 const Ciudadesturisticas = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
@@ -40,14 +42,17 @@ const Ciudadesturisticas = () => {
   const handleRedirect = () => {
     navigate('/Contacto'); // Redirige a /Contactos
     navigate('/Paquetes'); //Regirige a paquetes 
-    navigate('/CiudadesTuristicas'); // Redirige a ciudades turisticas 
-    navigate('/Home'); // Redirige a la pagina de inicio turisticas 
+    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+    navigate('/Restaurantes'); // Redirige a Restaurantes
+    navigate('/'); // Redirige a ciudades turisticas 
+    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+
 
   };
 
 
-
-  // Configuración de los carrusel
+  // Configuración de los carrusel para las tarjetas
   const carruselConfig = {
     dots: true, // Muestra indicadores de navegación
     infinite: true, // Se repite cuando llega al final
@@ -84,6 +89,48 @@ const Ciudadesturisticas = () => {
     ]
   };
 
+  // Configuración carrusel de la imagen 
+  const carruselFullImagen = {
+    dots: false,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablets
+        settings: { slidesToShow: 1 }
+      },
+      {
+        breakpoint: 768, // Móviles
+        settings: { slidesToShow: 1, dots: false } // Ocultar dots en móviles
+      }
+    ]
+  };
+
+  const carruselFullImagen2 = {
+    dots: true,
+    infinite: true,
+    speed: 700,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 1024, // Tablets
+        settings: { slidesToShow: 1 }
+      },
+      {
+        breakpoint: 768, // Móviles
+        settings: { slidesToShow: 1, dots: true }
+      }
+    ]
+  };
 
   // Función para cambiar la imagen de la bandera segun el idioma seleccionado
   useEffect(() => {
@@ -102,11 +149,11 @@ const Ciudadesturisticas = () => {
     <div className="home-container">
       {/* Menú Superior */}
       <header className="header">
-        <div className="top-menu">
+        <div className="menu-up">
           <img src="Logo.png" alt="Logo" className="logo" />
           <div className="search">
             <i className="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder={t("search")} className="search-bar" />
+            <input type="text" placeholder={t("search")} className="search-input" />
           </div>
           <button onClick={handleLogout} className="btn-logout">
             {t("logout")} <i className="fa-solid fa-arrow-right-from-bracket" />
@@ -121,15 +168,18 @@ const Ciudadesturisticas = () => {
           >
             ☰
           </button>
-          
-           {/* Segundo navar y redireccionamientos */}
-          <ul className={menuOpen ? "menu open" : "menu"}>
+          {/* Segundo navar y redireccionamientos */}
+          <ul className={menuOpen ? "menu-options open" : "menu-options"}>
             <li><a href="./home" onClick={handleRedirect}><i className="fa-solid fa-house-user" /> {t("menu.home")}</a></li>
             <li><a href="./Ciudadesturisticas" onClick={handleRedirect}><i className="fa-solid fa-city" /> {t("menu.cities")}</a></li>
             <li><a href="./Paquetes" onClick={handleRedirect} ><i className="fa-solid fa-box" /> {t("menu.packages")}</a></li>
-            <li><a href="./Contactos" onClick={handleRedirect}><i className="fa-solid fa-address-book" />{t("menu.contact")} </a></li>
+            <li><a href="./Restaurantes" onClick={handleRedirect} ><i className="fa-solid fa-utensils" /> {t("menu.restaurant")}</a></li>
+            <li><a href="./Hoteles" onClick={handleRedirect}><i class="fa-solid fa-hotel"></i> {t("menu.hotels")}</a></li>
+            <li><a href="./Lugares" onClick={handleRedirect} ><i class="fa-solid fa-ranking-star"></i> {t("menu.places")}</a></li>
+            <li><a href="./Contacto" onClick={handleRedirect} ><i class="fa-solid fa-address-book"></i> {t("menu.contact")}</a></li>
 
-            <div className="identificadoridioma">
+
+            <div className="language-select-container">
               <div className="form-group mt-1">
                 <select
                   className="language-select form-select form-select-sm"
@@ -150,70 +200,25 @@ const Ciudadesturisticas = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <div className="seccion shadow p-4 text-center">
+        <div className="shadow p-1 mt-5 mb-1 text-center">
           {user ? (
-            <p className="fs-5 fw-bold">{user.displayName} {t("welcome_message")}</p>
+            <p className="fs-5 fw-bold m-4 p-4 text-secondary">{user.displayName} {t("welcome_message")}</p>
           ) : (
             <p className="fs-5 text-muted">{t("description")}</p>
           )}
-          <hr />
-          <h2 className="text-start">{t("title1")}</h2>
-          {/* Carrusel de tarjetas */}
-          <Slider {...carruselConfig}>
-            {t("cards", { returnObjects: true }).map((card, index) => (
-              <div key={index} className="card">
-                <h3 className="p-3">{card.title}</h3>
-                <img src={`images/${card.category}/${card.image}`} alt={card.title} className="img-fluid" />
-                <p className="m-2">{card.description}</p>
-                <button className="btn btn-style1 m-2">{t("view")}</button>
-              </div>
-            ))}
-          </Slider>
+        </div>
+
+        <div className="seccion2 shadow p-4 text-center">
+
+          <h2 className="text-start">{t("titleCiudadesTuristicas")}</h2>
+          
           <br /><br />
-          <div className="seccion2">
-            <h2 className="text-start text-style2">{t("title2")}</h2>
-            {/* Carrusel de tarjetas */}
-            <Slider {...carruselConfig}>
-              {t("cards2", { returnObjects: true }).map((card, index) => (
-                <div key={index} className="card">
-                  <h3 className="p-3">{card.title}</h3>
-                  <img src={`images/${card.category}/${card.image}`} alt={card.title} className="img-fluid" />
-                  <p className="m-2">{card.description}</p>
-                  <button className="btn btn-style3 m-2">{t("view")}</button>
-                </div>
-              ))}
-            </Slider>
-            <br />
-          </div>
-          <h2 className="text-start">{t("title3")}</h2>
-          {/* Carrusel de tarjetas */}
-          <Slider {...carrusel3Config}>
-            {t("cards3", { returnObjects: true }).map((card, index) => (
-              <div key={index} className="card">
-                <h3 className="p-3">{card.title}</h3>
-                <img src={`images/${card.category}/${card.image}`} alt={card.title} className="img-fluid" />
-                <p className="m-2">{card.description}</p>
-                <button className="btn btn-style1 m-2">{t("view")}</button>
-              </div>
-            ))}
-          </Slider>
-          <br />
+          
         </div>
       </div>
 
       {/* Footer */}
-      <footer className="footer">
-        <div className="footer-content">
-          <img src="Logo.png" alt="Logo" className="logo-footer" />
-          <nav className="footer-nav">
-            <ul>
-              <li><a href="#">{t("footer.terms")}</a></li>
-              <li><a href="#">{t("footer.privacy")}</a></li>
-            </ul>
-          </nav>
-          <p className="footer-text">© 2025 Turistall - {t("footer.rights")}</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
