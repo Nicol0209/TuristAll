@@ -10,6 +10,7 @@ import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
 import Footer from "./Footer";
+import Breadcrumbs from "./MigasdePan";
 
 const Paquetes = () => {
   const navigate = useNavigate();
@@ -207,6 +208,7 @@ const Paquetes = () => {
             <p className="fs-5 text-muted">{t("description")}</p>
           )}
         </div>
+        <Breadcrumbs />
 
         <div className="seccion2 shadow p-4 text-center">
 

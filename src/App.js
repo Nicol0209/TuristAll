@@ -57,12 +57,6 @@ const App = () => {
 
   return (
     <Router>
-      <div style={styles.breadcrumbContainer}>
-        <Breadcrumbs />
-        <Breadcrumbs path="/Contacto" name="contacto" />
-
-
-      </div>
 
       <Routes>
         {/* Si el usuario está autenticado, lo redirige a /home; si no, muestra la pantalla de login */}
@@ -98,38 +92,7 @@ const App = () => {
   );
 };
 
-const Breadcrumbs = ({ }) => {
-  const location = useLocation();
-  const pathnames = location.pathname.split("/").filter((x) => x); // Divide la URL en segmentos
-  const breadcrumbList = [
-    { name: "Home", path: "/" },
-    { name: "Contacto", path: "/Contacto" },
-    { name: "Paquetes", path: "/Paquetes" },
-    { name: "Ciudades Turísticas", path: "/CiudadesTuristicas" },
-    { name: "Autenticación", path: "/auth" },
-  ];
-  return (
-    <div>
-      <nav aria-label="breadcrumb">
-        <ul style={{ listStyle: 'none', paddingLeft: 0, display: 'flex' }}>
-          <li><Link to="/">Inicio</Link></li> {/* Agregar un link al inicio */}
 
-          {/* Crear las migas de pan basadas en la URL actual */}
-          {pathnames.map((value, index) => {
-            const currentPath = `/${pathnames.slice(0, index + 1).join("/")}`;
-            const breadcrumb = breadcrumbList.find((b) => b.path === currentPath);
-            return breadcrumb ? (
-              <li key={index} style={{ marginLeft: '10px' }}>
-                <span> &gt; </span>
-                <Link to={currentPath}>{breadcrumb.name}</Link>
-              </li>
-            ) : null;
-          })}
-        </ul>
-      </nav>
-    </div>
-  );
-};
 
 const styles = {
   loaderContainer: {

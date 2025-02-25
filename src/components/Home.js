@@ -5,11 +5,14 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Home.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
-
+// Estilo de la pagina principal
+import "../styles/Home.css";
+// Footer
 import Footer from "./Footer";
+// Migas de Pan
+import MigasdePan from "./MigasdePan";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -104,8 +107,8 @@ const Home = () => {
         settings: { slidesToShow: 1 }
       },
       {
-        breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: false } // Ocultar dots en móviles
+        breakpoint: 768, // Dispositivos móviles
+        settings: { slidesToShow: 1, dots: false } 
       }
     ]
   };
@@ -125,7 +128,7 @@ const Home = () => {
         settings: { slidesToShow: 1 }
       },
       {
-        breakpoint: 768, // Móviles
+        breakpoint: 768, // Dispositivos móviles
         settings: { slidesToShow: 1, dots: true }
       }
     ]
@@ -199,13 +202,14 @@ const Home = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <div className="shadow p-1 mt-5 mb-1 text-center">
+        <div className="nameUser shadow p-1 mb-1 text-center">
           {user ? (
             <p className="fs-5 fw-bold m-4 p-4 text-secondary">{user.displayName} {t("welcome_message")}</p>
           ) : (
             <p className="fs-5 text-muted">{t("description")}</p>
           )}
         </div>
+        <MigasdePan />
 
         <div className="seccion1">
           <Slider {...carruselFullImagen} className="carrusel-full">
@@ -274,13 +278,13 @@ const Home = () => {
             <Slider {...carruselFullImagen2} className="carrusel-full">
               {[
                 {
-                  img: "/images/testimonios/Colombiano1.jpg",
+                  img: "public/images/testimonios/Colombiano1.jpg",
                   title: "María de España: 'Una experiencia inolvidable en Bogotá'",
                   description: "María quedó maravillada con la historia y cultura de la ciudad, visitando lugares como La Candelaria y el Museo del Oro. Se sintió como en casa.",
                   city: "Bogota"
                 },
                 {
-                  img: "/images/testimonios/Colombiano2.jpg",
+                  img: "public/images/testimonios/Colombiano2.jpg",
                   title: "Carlos de Argentina: 'Santa Marta, el paraíso escondido'",
                   description: "Carlos disfrutó de las playas cristalinas y las montañas de Santa Marta. Enamoró con la Sierra Nevada y las maravillas naturales del Parque Tayrona.",
                   city: "SantaMarta"
