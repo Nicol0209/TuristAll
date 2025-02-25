@@ -18,7 +18,18 @@ const es = {
   titleHoteles: "Hoteles",
   titleRestaurantes: "Restaurantes",
   titlePaquetes: "Paquetes",
+  titlecontacto: "Contactos",
+  titlecontactos2: "Pruebas",
   search: "Buscar...",
+  formcontacto:{
+    name: "Nombres",
+    email: "Correo electrónico",
+    message: "Comentario o mensaje",
+    namePlaceholder: "Escribe tu nombre y apellido",
+    emailPlaceholder: "Escribe tu email",
+    messagePlaceholder: "Cuéntame lo que necesitas...",
+    send: "Enviar"
+  },
   menu: {
     home: "Inicio",
     cities: "Ciudades Turisticas",

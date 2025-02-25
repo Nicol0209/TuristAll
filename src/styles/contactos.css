@@ -168,6 +168,12 @@ body {
     min-height: 100vh;
 
 }
+
+/* Nombre del Usuario Autenticado */
+.nameUser{
+    margin-top: 100px;
+}
+
 /*borde de fondo de contactos */
 .title-container {
     background-color: rgba(102, 99, 99, 0.6); /* Fondo semitransparente */
@@ -283,8 +289,8 @@ body {
 /* SECCIÓN BÚSQUEDAS DESTACADAS */
 .seccion2 {
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    flex-direction: space-around;
+    min-height: 40vh;
 }
 
 /* SECCIÓN DEL RANKING */
@@ -294,7 +300,7 @@ body {
     left: 50%;
     position: relative;
     /* Evita que se desplace mal */
-    background-color: #dfd2ac;
+    background-color: #e9e7e0;
     padding: 20px 0;
     /* Espacio arriba y abajo */
 }
@@ -312,17 +318,17 @@ body {
 }
 
 /* TARJETAS - CARDS */
-.card {
+.cardcontacto {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    text-align: center;
+    text-align: right;
     background-color: rgb(238, 237, 237);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     width: 100%;
-    max-width: 300px;
+    max-width: 400px;
     min-height: 400px;
     padding: 20px;
     border-radius: 10px;
@@ -330,7 +336,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-.card h3 {
+.cardcontacto h3 {
     font-size: 1.2rem;
     min-height: 50px;
     overflow: hidden;
@@ -339,34 +345,70 @@ body {
     /* Permite que el texto haga salto de línea */
     word-wrap: break-word;
     /* Asegura que el texto se ajuste dentro del contenedor */
-    text-align: center;
+    text-align: right;
     max-width: 100%;
 }
 
-.card img {
-    width: 100%;
+.cardcontacto img {
+    width: 80%;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
+    margin-right: 20px;
 }
 
-.card p {
+
+.cardcontacto p {
     flex-grow: 1;
     /* Expande el párrafo para igualar tamaños */
     min-height: 70px;
     overflow: hidden;
-    text-overflow: ellipsis;
 }
 
-.card button {
+.cardcontacto button {
     width: 90%;
     max-width: 200px;
+    align-self: flex-start; /* Alinea el botón a la izquierda */
+
 }
 
-.card button:hover {
+.cardcontacto button:hover {
     color: white;
     font-weight: bold;
 }
+/*estilos para el formulario de contacto*/
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px 80px ;
+    border-left: 1px solid #000;
+    margin-right: 50px; 
+    margin-top: 5px;
+  }
+  
+.contact-form .form-control {
+    margin-bottom: 15px;
+  }
+  
+.contact-form .btn {
+    width: 100%;
+  }
+/*Estios para la geolocalizacion*/
+.contact-container {
+    display: flex;
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    gap: 5px; /* Espacio entre el mapa y el formulario */
+    /*flex-wrap: wrap; /* Si la pantalla es pequeña, coloca los elementos en una nueva línea */
+    align-items: center; /* Centra verticalmente los elementos */
+    display: flex;
+    flex-direction: row;
+    
+  }
+  
+  .location-info iframe {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
 
 /* CARRUSEL */
 .slick-slide {

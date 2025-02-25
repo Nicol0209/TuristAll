@@ -5,11 +5,12 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Lugares.css";
+import "../styles/Paquetes.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
 import Footer from "./Footer";
+import MigasdePan from "./MigasdePan";
 
 const Lugares = () => {
   const navigate = useNavigate();
@@ -51,86 +52,6 @@ const Lugares = () => {
 
   };
 
-
-  // Configuración de los carrusel para las tarjetas
-  const carruselConfig = {
-    dots: true, // Muestra indicadores de navegación
-    infinite: true, // Se repite cuando llega al final
-    speed: 500, // Velocidad de transición
-    slidesToShow: 5, // Muestra 3 tarjetas en pantallas grandes
-    slidesToScroll: 1, // Se mueve de una en una
-    responsive: [
-      {
-        breakpoint: 1024, // Para tablets
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 768, // Para móviles
-        settings: { slidesToShow: 1 }
-      }
-    ]
-  };
-
-  const carrusel3Config = {
-    dots: true, // Muestra indicadores de navegación
-    infinite: false, // Se repite cuando llega al final
-    speed: 500, // Velocidad de transición
-    slidesToShow: 7, // Muestra 3 tarjetas en pantallas grandes
-    slidesToScroll: 1, // Se mueve de una en una
-    responsive: [
-      {
-        breakpoint: 1024, // Para tablets
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 768, // Para móviles
-        settings: { slidesToShow: 1 }
-      }
-    ]
-  };
-
-  // Configuración carrusel de la imagen 
-  const carruselFullImagen = {
-    dots: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024, // Tablets
-        settings: { slidesToShow: 1 }
-      },
-      {
-        breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: false } // Ocultar dots en móviles
-      }
-    ]
-  };
-
-  const carruselFullImagen2 = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024, // Tablets
-        settings: { slidesToShow: 1 }
-      },
-      {
-        breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: true }
-      }
-    ]
-  };
 
   // Función para cambiar la imagen de la bandera segun el idioma seleccionado
   useEffect(() => {
@@ -200,21 +121,21 @@ const Lugares = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <div className="shadow p-1 mt-5 mb-1 text-center">
-          {user ? (
-            <p className="fs-5 fw-bold m-4 p-4 text-secondary">{user.displayName} {t("welcome_message")}</p>
-          ) : (
-            <p className="fs-5 text-muted">{t("description")}</p>
-          )}
-        </div>
-
-        <div className="seccion2 shadow p-4 text-center">
-
-          <h2 className="text-start">{t("titleLugares")}</h2>
-          {/* Carrusel de tarjetas seccion búsquedas*/}
-          
-          <br /><br />
-          
+        <div className="seccion1">
+          <div className="carousel-slide">
+            {/* Imagen de fondo */}
+            <img
+              src="/images/Contacto/Cartagenacolombia.jpg"
+              alt={t("hero.title")}
+              className="full-img"
+            />
+            {/* Contenedor del texto */}
+            <div className="carousel-overlay">
+              <div className="title-container">
+                <h2 className="carousel-title">{t("hero.title")}</h2>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

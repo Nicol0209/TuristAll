@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { changeLanguage } from "../i18n";
 
 // Importa las funciones de autenticación desde el archivo `firebase.js`
-import { auth, loginWithGoogle, loginWithFacebook, loginWithTwitter, registerWithEmail, loginWithEmail, logout } from "../firebase";
+import { auth, loginWithGoogle, loginWithFacebook, registerWithEmail, loginWithEmail, logout, loginWithMicrosoft } from "../firebase";
 
 // Importa `useAuthState` de `react-firebase-hooks/auth` para obtener el estado de autenticación del usuario
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -103,9 +103,9 @@ const Login = () => {
           <i className="fab fa-facebook"></i> {t("signInWithFacebook")}
         </button>
 
-        {/* Botón para autenticarse por Twitter */}
-        <button onClick={loginWithTwitter} className="btn btn-twitter mt-2 w-100" disabled={user}>
-          <i className="fab fa-twitter"></i> {t("signInWithTwitter")}
+        {/* Botón para autenticarse con Microsoft */}
+        <button onClick={loginWithMicrosoft} className="btn btn-twitter mt-2 w-100" disabled={user}>
+          <i className="fab fa-twitter"></i> {t("signInWithMicrosoft")}
         </button>
       </div>
     </div>

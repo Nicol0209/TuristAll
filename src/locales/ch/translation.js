@@ -17,8 +17,18 @@ const ch = {
   titleLugares: "探索旅遊勝地",
   titleHoteles: "飯店",
   titleRestaurantes: "餐廳",
-  titlePaquetes: "",
+  titlePaquetes: "包包",
+  titlecontacto: "聯絡人",
   search: "搜索...",
+  formcontacto:{
+    name: "名字",
+    email: "電子郵件",
+    message: "評論或留言",
+    namePlaceholder: "寫下你的名字和姓氏",
+    emailPlaceholder: "寫下您的電子郵件",
+    messagePlaceholder: "告訴我你需要什麼.....",
+    send: "發送"
+  },
   menu: {
     home: "首页",
     cities: "旅游城市",

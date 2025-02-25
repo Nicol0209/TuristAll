@@ -169,6 +169,11 @@ body {
 
 }
 
+/* Nombre del Usuario Autenticado */
+.nameUser{
+    margin-top: 100px;
+}
+
 /* CARRUSEL DE IMAGENES */
 .carrusel-full {
     width: 100vw;

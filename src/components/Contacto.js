@@ -8,12 +8,18 @@ import "slick-carousel/slick/slick-theme.css";
 import "../styles/contactos.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
+import Footer from "./Footer";
+import MigasdePan from "./MigasdePan";
 
 const Contactos = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
+  const lat = 4.6097;  // Latitud
+  const lon = -74.0721; // Longitud
+  
+  const googleMapsUrl = `https://www.google.com/maps/embed/v1/place?q=${lat},${lon}&key=YOUR_GOOGLE_MAPS_API_KEY`;
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -49,8 +55,8 @@ const Contactos = () => {
   const carruselConfig = {
     dots: true, // Muestra indicadores de navegación
     infinite: true, // Se repite cuando llega al final
-    speed: 500, // Velocidad de transición
-    slidesToShow: 5, // Muestra 3 tarjetas en pantallas grandes
+    speed: 200, // Velocidad de transición
+    slidesToShow: 3, // Muestra 3 tarjetas en pantallas grandes
     slidesToScroll: 1, // Se mueve de una en una
     responsive: [
       {
@@ -120,7 +126,7 @@ const Contactos = () => {
       },
       {
         breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: true } 
+        settings: { slidesToShow: 1, dots: true }
       }
     ]
   };
@@ -171,8 +177,8 @@ const Contactos = () => {
             <li><a href="./Lugares" onClick={handleRedirect} ><i class="fa-solid fa-ranking-star"></i> {t("menu.places")}</a></li>
             <li><a href="./Contacto" onClick={handleRedirect} ><i class="fa-solid fa-address-book"></i> {t("menu.contact")}</a></li>
 
-            
-           {/*lista desplegable de idiomas */}
+
+            {/*lista desplegable de idiomas */}
             <div className="language-select-container">
               <div className="form-group mt-1">
                 <select
@@ -192,9 +198,9 @@ const Contactos = () => {
         </nav>
       </header>
       <br />
+
       {/* Contenido Principal */}
       <div className="main-content">
-
         <div className="seccion1">
           <Slider {...carruselFullImagen} className="carrusel-full">
             {[
@@ -206,38 +212,74 @@ const Contactos = () => {
                 {/* Contenedor del texto y el botón */}
                 <div className="carousel-overlay">
                   {/* Cuadro rectangular con título centrado */}
-                    <div className="title-container">
+                  <div className="title-container">
                     <h2 className="carousel-title">{slide.title}</h2>
-                 </div>
-             </div>
+                  </div>
+                </div>
               </div>
             ))}
           </Slider>
         </div>
+        <MigasdePan />
 
-        <div className="seccion2 shadow p-4 text-center">
+        <div className="seccion2 shadow p-4 text-right">
 
           <h2 className="text-start">{t("titlecontacto")}</h2>
           {/* Carrusel de tarjetas seccion búsquedas*/}
           <Slider {...carruselConfig}>
             {t("cardscontact", { returnObjects: true }).map((card, index) => (
-              <div key={index} className="card">
+              <div key={index} className="cardcontacto">
                 <h3 className="p-3">{card.title}</h3>
                 <img src={`images/${card.category}/${card.image}`} alt={card.title} className="img-fluid" />
-                <p className="m-2">{card.description}</p>
                 <button className="btn btn-style1 m-2">{t("view")}</button>
               </div>
             ))}
           </Slider>
-          <br /><br />
-          
-          
-          <br />
-          
+        </div>
+
+        <div className="formcontacto  shadow p-4 text-start ">
+          <h2 className="text-start">{t("titlecontactos2")} </h2>
+              {/* Contenedor para la geolocalización y el formulario */}
+      <div className="contact-container">
+        
+        {/* Google Maps en iframe a la izquierda */}
+        <div className="location-info">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.785140543764!2d-74.08343562418679!3d4.63238404224428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f99a0f9bb0ce7%3A0x5d71ff487837183c!2sUniempresarial!5e0!3m2!1ses!2sco!4v1740454765439!5m2!1ses!2sco"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Ubicación en Google Maps"
+          ></iframe>
+        </div>
+      </div>
+          {/* Formulario de contacto */}
+          <form className="contact-form">
+            <div className="mb-3">
+              <label htmlFor="name" className="form-label">{t("formcontacto.name")}</label>
+              <input type="text" className="form-control" id="name" placeholder={t("formcontacto.namePlaceholder")} required />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">{t("formcontacto.email")}</label>
+              <input type="email" className="form-control" id="email" placeholder={t("formcontacto.emailPlaceholder")} required />
+            </div>
+
+            <div className="mb-3">
+              <label htmlFor="message" className="form-label">{t("formcontacto.message")}</label>
+              <textarea className="form-control" id="message" rows="4" placeholder={t("formcontacto.messagePlaceholder")} required></textarea>
+            </div>
+
+    <button type="submit" className="btn btn-style1 m-2">{t("formcontacto.send")}</button>
+  </form>
         </div>
       </div>
 
+    
+
       {/* Footer */}
+      <Footer />
     </div>
   );
 };

@@ -18,7 +18,17 @@ const en = {
   titleHoteles: "Hotels",
   titleRestaurantes: "Restaurants",
   titlePaquetes: "Packages",
+  titlecontacto: "Contacts",
   search: "Search...",
+  formcontacto:{
+    name: "Names",
+    email: "Email",
+    message: "Comment or message",
+    namePlaceholder: "Enter your first and last name",
+    emailPlaceholder: "Enter your email",
+    messagePlaceholder: "Tell me what you need....",
+    send: "Send"
+  },
   menu: {
     home: "Home",
     cities: "Tourist Cities",

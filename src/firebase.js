@@ -1,15 +1,15 @@
 import { initializeApp } from "firebase/app";
-import { 
-  getAuth, 
-  GoogleAuthProvider, 
+import {
+  getAuth,
+  GoogleAuthProvider,
   FacebookAuthProvider, //Para agregar autenticación mediante Facebook
-  TwitterAuthProvider, //Para agregar autenticación por Twitter
+  OAuthProvider,  // Paragregar Microsoft como OAuthProvider
   signInWithPopup,  // 🔹 Se mantiene `Popup` para mejor experiencia en PWA
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword, 
-  signOut, 
-  setPersistence, 
-  browserLocalPersistence 
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  setPersistence,
+  browserLocalPersistence
 } from "firebase/auth";
 
 // 🔹 Configuración del proyecto Firebase
@@ -28,7 +28,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider(); //Crear el proveedor de Facebook
-const twitterProvider = new TwitterAuthProvider(); //Crear el proveedor de Twitter
+const microsoftProvider = new OAuthProvider('microsoft.com');
 
 // 🔹 Configurar persistencia en localStorage
 setPersistence(auth, browserLocalPersistence)
@@ -36,37 +36,38 @@ setPersistence(auth, browserLocalPersistence)
   .catch((error) => console.error("⚠️ Error configurando persistencia:", error));
 
 
-  const loginWithGoogle = async () => {
-    try {
-      console.log("🟢 Abriendo ventana de autenticación...");
-      const result = await signInWithPopup(auth, googleProvider);
-      console.log("✅ Usuario autenticado con Google:", result.user);
-    } catch (error) {
-      console.error("⚠️ Error en autenticación con Google:", error);
-    }
-  };
+const loginWithGoogle = async () => {
+  try {
+    console.log("🟢 Abriendo ventana de autenticación...");
+    const result = await signInWithPopup(auth, googleProvider);
+    console.log("✅ Usuario autenticado con Google:", result.user);
+  } catch (error) {
+    console.error("⚠️ Error en autenticación con Google:", error);
+  }
+};
 
-  //Función para autenticarse con Facebook
-  const loginWithFacebook = async () => {
-    try {
-      console.log("🟢 Abriendo ventana de autenticación con Facebook...");
-      const result = await signInWithPopup(auth, facebookProvider);
-      console.log("✅ Usuario autenticado con Facebook:", result.user);
-    } catch (error) {
-      console.error("⚠️ Error en autenticación con Facebook:", error);
-    }
-  };
+//Función para autenticarse con Facebook
+const loginWithFacebook = async () => {
+  try {
+    console.log("🟢 Abriendo ventana de autenticación con Facebook...");
+    const result = await signInWithPopup(auth, facebookProvider);
+    console.log("✅ Usuario autenticado con Facebook:", result.user);
+  } catch (error) {
+    console.error("⚠️ Error en autenticación con Facebook:", error);
+  }
+};
 
-    //Función para autenticarse con Twitter
-    const loginWithTwitter = async () => {
-      try {
-        console.log("🟢 Abriendo ventana de autenticación con Twitter...");
-        const result = await signInWithPopup(auth, twitterProvider);
-        console.log("✅ Usuario autenticado con Twitter:", result.user);
-      } catch (error) {
-        console.error("⚠️ Error en autenticación con Twitter:", error);
-      }
-    };
+// 🔹 Función para autenticarse con Microsoft
+const loginWithMicrosoft = async () => {
+  try {
+    console.log("🟢 Abriendo ventana de autenticación con Microsoft...");
+    const result = await signInWithPopup(auth, microsoftProvider);
+    console.log("✅ Usuario autenticado con Microsoft:", result.user);
+  } catch (error) {
+    console.error("⚠️ Error en autenticación con Microsoft:", error);
+  }
+};
+
 
 // 🔹 Función para registrar usuario con Email/Contraseña
 const registerWithEmail = async (email, password) => {
@@ -83,7 +84,7 @@ const loginWithEmail = async (email, password) => {
   if (password.length < 6) {
     console.error("⚠️ La contraseña debe tener al menos 6 caracteres.");
     return;
-}
+  }
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -104,4 +105,4 @@ const logout = async () => {
 };
 
 // 🔹 Exportar funciones de autenticación
-export { auth, googleProvider, facebookProvider, twitterProvider, loginWithTwitter, loginWithFacebook, loginWithGoogle, registerWithEmail, loginWithEmail, logout };
+export { auth, googleProvider, facebookProvider, microsoftProvider, loginWithFacebook, loginWithGoogle, loginWithMicrosoft, registerWithEmail, loginWithEmail, logout };

@@ -5,11 +5,12 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Hoteles.css";
+import "../styles/Paquetes.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
 import Footer from "./Footer";
+import MigasdePan from "./MigasdePan";
 
 const Hoteles = () => {
   const navigate = useNavigate();
@@ -147,6 +148,7 @@ const Hoteles = () => {
 
   return (
     <div className="home-container">
+
       {/* Menú Superior */}
       <header className="header">
         <div className="menu-up">
@@ -200,20 +202,15 @@ const Hoteles = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <div className="shadow p-1 mt-5 mb-1 text-center">
-          {user ? (
-            <p className="fs-5 fw-bold m-4 p-4 text-secondary">{user.displayName} {t("welcome_message")}</p>
-          ) : (
-            <p className="fs-5 text-muted">{t("description")}</p>
-          )}
-        </div>
+        <MigasdePan />
 
         <div className="seccion2 shadow p-4 text-center">
 
           <h2 className="text-start">{t("titleHoteles")}</h2>
-          
+          {/* Carrusel de tarjetas seccion búsquedas*/}
+
           <br /><br />
-          
+
         </div>
       </div>
 

@@ -11,6 +11,7 @@ body {
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    
 }
 
 /* CABECERA - MENÚ */
@@ -167,6 +168,11 @@ body {
 .main-content {
     min-height: 100vh;
 
+}
+
+/* Nombre del Usuario Autenticado */
+.nameUser{
+    margin-top: 100px;
 }
 
 /* CARRUSEL DE IMAGENES */

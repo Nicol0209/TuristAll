@@ -169,6 +169,11 @@ body {
 
 }
 
+/* Nombre del Usuario Autenticado */
+.nameUser{
+    margin-top: 100px;
+}
+
 /* CARRUSEL DE IMAGENES */
 .carrusel-full {
     width: 100vw;
@@ -297,102 +302,6 @@ body {
     background-color: transparent;
     padding: 20px 0;
     /* Espacio arriba y abajo */
-}
-
-/* TARJETAS - CARDS */
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(238, 237, 237);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    width: 100%;
-    max-width: 300px;
-    min-height: 400px;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px auto;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-}
-
-.card h3 {
-    font-size: 1.2rem;
-    min-height: 50px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: normal;
-    /* Permite que el texto haga salto de línea */
-    word-wrap: break-word;
-    /* Asegura que el texto se ajuste dentro del contenedor */
-    text-align: center;
-    max-width: 100%;
-}
-
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.card p {
-    flex-grow: 1;
-    /* Expande el párrafo para igualar tamaños */
-    min-height: 70px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.card button {
-    width: 90%;
-    max-width: 200px;
-}
-
-.card button:hover {
-    color: white;
-    font-weight: bold;
-}
-
-/* CARRUSEL */
-.slick-slide {
-    padding: 10px;
-    /* Espacio para las tarjetas */
-}
-
-/* Si las flechas son imágenes SVG, aplica filtro */
-.slick-prev::before,
-.slick-next::before {
-    color: #045abd;
-    /* Asegura que se cambie el color */
-    font-size: 25px;
-    /* Ajusta el tamaño */
-}
-
-/* Posicionar las flechas dentro del carrusel */
-.slick-prev,
-.slick-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    font-size: 30px;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slick-prev {
-    left: 3px;
-}
-
-.slick-next {
-    right: 3px;
 }
 
 /* TEXTOS */

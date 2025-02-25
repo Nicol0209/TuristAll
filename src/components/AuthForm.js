@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { registerWithEmail, loginWithEmail, loginWithGoogle, loginWithFacebook, loginWithTwitter } from "../firebase";
+import { registerWithEmail, loginWithEmail, loginWithGoogle, loginWithFacebook, loginWithMicrosoft } from "../firebase";
 
 const AuthForm = () => {
   const [email, setEmail] = useState("");
@@ -45,11 +45,12 @@ const AuthForm = () => {
       setError(err.message);
     }
   };
-  //Para iniciar con Twitter
-  const handleTwitterLogin = async () => {
+
+  //Para iniciar sesión con Microsoft
+  const handleMicrosoftLogin = async () => {
     setError("");
     try {
-      await loginWithTwitter();
+      await loginWithMicrosoft();
     } catch (err) {
       setError(err.message);
     }
@@ -75,10 +76,10 @@ const AuthForm = () => {
         onChange={(e) => setPassword(e.target.value)}
       />
       <button className="btn btn-primary mb-2" onClick={handleLogin}>Sign In</button>
-      <button className="btn btn-secondary mb-2" onClick={handleRegister}>Register</button>
-      <button className="btn btn-danger" onClick={handleGoogleLogin}>Sign in with Google</button>
-      <button className="btn btn-danger" onClick={handleFacebookLogin}>Sign in with Facebook</button>
-      <button className="btn btn-danger" onClick={handleTwitterLogin}>Sign in with Twitter</button>
+      <button className="btn btn-primary mb-2" onClick={handleRegister}>Register</button>
+      <button className="btn btn-primary" onClick={handleGoogleLogin}>Sign in with Google</button>
+      <button className="btn btn-primary" onClick={handleFacebookLogin}>Sign in with Facebook</button>
+      <button className="btn btn-primary" onClick={handleMicrosoftLogin}>Sign in with Microsoft</button>
     </div>
   );
 };

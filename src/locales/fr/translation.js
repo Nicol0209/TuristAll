@@ -18,7 +18,17 @@ const fr = {
   titleHoteles: "Hôtels",
   titleRestaurantes: "Restaurants",
   titlePaquetes: "Forfaits",
+  titlecontacto: "Contacts",
   search: "Rechercher...",
+  formcontacto:{
+    name: "Noms",
+    email: "E-mail",
+    message: "Commentaire ou message",
+    namePlaceholder: "Entrez votre nom et prénom",
+    emailPlaceholder: "Entrez votre email",
+    messagePlaceholder: "Dites-moi ce dont vous avez besoin...",
+    send: "Envoyer"
+  },
   menu: {
     home: "Accueil",
     cities: "Villes touristiques",
