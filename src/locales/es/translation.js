@@ -5,7 +5,7 @@ const es = {
   welcome: "Bienvenido",
   signInWithGoogle: "Iniciar sesión con Google",
   signInWithFacebook: "Iniciar sesión con Facebook",
-  signInWithTwitter: "Iniciar sesión con Twitter",
+  signInWithMicrosoft: "Iniciar sesión con Microsoft",
   email: "Correo Electrónico",
   password: "Contraseña",
   signIn: "Ingresar",
@@ -18,9 +18,23 @@ const es = {
   titleHoteles: "Hoteles",
   titleRestaurantes: "Restaurantes",
   titlePaquetes: "Paquetes",
-  titlecontacto: "Contactos",
-  titlecontactos2: "Pruebas",
+  titlecontacto: "Contacta nuestros canales de venta Asistida ¡Descuentos imperdibles!",
+  titleContactos:"Contacto",
+  titlecontactos2: "Visítanos y Conoce Más",
   search: "Buscar...",
+  bogota_title: "¿Ya conoces Bogotá?",
+  santa_marta_title: "Visita Santa Marta y sus paisajes inolvidables",
+  barranquilla_title: "Explora Barranquilla, la ciudad de la belleza arquitectónica",
+  menu: {
+    home: "Inicio",
+    contact: "Contacto",
+    packages: "Paquetes",
+    restaurant: "Restaurantes",
+    hotels: "Hoteles",
+    places: "Lugares",
+    cities: "Ciudades Turísticas",
+    auth: "Autenticación"
+  },
   formcontacto:{
     name: "Nombres",
     email: "Correo electrónico",
@@ -28,7 +42,12 @@ const es = {
     namePlaceholder: "Escribe tu nombre y apellido",
     emailPlaceholder: "Escribe tu email",
     messagePlaceholder: "Cuéntame lo que necesitas...",
-    send: "Enviar"
+    send: "Enviar",
+    contactInfoTitle: "Contáctenos!",
+    contactInfoDescription: "Horario de atención: Lunes a Viernes de 9:00 a 18:00 hs. Sábados de 10:00 a 14:00 hs.",
+    address:"Dirección: Cra. 33a #30-20, Bogotá ",
+    phone:"Telefonos de contacto: +57 3137371781, +57 3209772986, +57 3222438058 ",
+    emailinfo: "Email: tvalencia@uniempresarial.edu.co - nrubio@uniempresarial.edu.co - llopez@uniempresarial.edu.co ",
   },
   menu: {
     home: "Inicio",
@@ -80,11 +99,49 @@ const es = {
     { title: "Descuento en Caño Cristales", description: "Reserva con anticipación y obtén hasta 30% de descuento.", image: "Caño Cristales promo.jpeg", category: "Promociones" },
     { title: "City Tour en Bogotá", description: "Tour por los principales sitios de la capital con 25% de descuento.", image: "Bogota promo.jpg", category: "Promociones" }
   ],
+  testimonials: [
+    {
+      img: "/images/Testimonios/Colombiano1.jpg",
+      title: "María de España: 'Una experiencia inolvidable en Bogotá'",
+      description: "María quedó maravillada con la historia y cultura de la ciudad, visitando lugares como La Candelaria y el Museo del Oro. Se sintió como en casa.",
+      city: "Bogotá"
+    },
+    {
+      img: "/images/Testimonios/Colombiano2.jpg",
+      title: "Carlos de Argentina: 'Santa Marta, el paraíso escondido'",
+      description: "Carlos disfrutó de las playas cristalinas y las montañas de Santa Marta. Enamoró con la Sierra Nevada y las maravillas naturales del Parque Tayrona.",
+      city: "Santa Marta"
+    },
+    {
+      img: "/images/Testimonios/Colombiano3.jpg",
+      title: "Lucía de México: 'Barranquilla, una ciudad llena de vida y color'",
+      description: "Lucía se asombró con la calidez de la gente y la arquitectura de Barranquilla. Además, disfrutó de su gastronomía única y su vibrante Carnaval.",
+      city: "Barranquilla"
+    },
+    {
+      img: "/images/Testimonios/Colombiano4.jpeg",
+      title: "Andrés de Chile: 'Cartagena, historia y romance a la orilla del mar'",
+      description: "Andrés visitó la ciudad amurallada y se sintió como un viajero en el tiempo, explorando la arquitectura colonial y disfrutando de las playas caribeñas.",
+      city: "Cartagena"
+    },
+    {
+      img: "/images/Testimonios/Colombiano5.jpg",
+      title: "Sofía de Brasil: 'Cali, la salsa y el ritmo de la vida'",
+      description: "Sofía se sumergió en el corazón de la salsa. Disfrutó de las noches de fiesta, la gastronomía caleña, y los parques naturales de la ciudad.",
+      city: "Cali"
+    },
+    {
+      img: "/images/Testimonios/Colombiano6.jpg",
+      title: "Diego de Perú: 'Medellín, innovación y cultura en cada rincón'",
+      description: "Diego quedó encantado con la transformación de Medellín, visitando el Parque Arví, el Museo de Antioquia y disfrutando de la calidez de su gente.",
+      city: "Medellín"
+    }
+  ],
   footer: {
     terms_conditions: "Términos y Condiciones",
     privacy_policy: "Política de Privacidad",
     rights: "Todos los derechos reservados."
-  }
+  },
 
 };
 export default es;

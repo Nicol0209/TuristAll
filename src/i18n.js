@@ -14,7 +14,7 @@ const resources = {
 };
 
 // 🔹 Detectar idioma guardado o usar el del navegador
-const savedLanguage = localStorage.getItem('language') || navigator.language.split('-')[0] || 'en';
+const savedLanguage = localStorage.getItem("language") || navigator.language.split("-")[0] || "en";
 
 // 🔹 Inicialización de i18next con el idioma guardado en localStorage
 i18n

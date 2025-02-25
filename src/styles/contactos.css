@@ -170,52 +170,20 @@ body {
 }
 
 /* Nombre del Usuario Autenticado */
-.nameUser{
+.nameUser {
     margin-top: 100px;
 }
 
 /*borde de fondo de contactos */
 .title-container {
-    background-color: rgba(102, 99, 99, 0.6); /* Fondo semitransparente */
+    background-color: rgba(102, 99, 99, 0.6);
+    /* Fondo semitransparente */
     padding: 15% 30%;
     display: inline-block;
     border-radius: 2px;
-  }
+}
 
-.cardcontacto {
-    display: flex; /* Usamos flexbox para alinear los elementos de forma horizontal */
-    flex-direction: row; /* Organiza los elementos en fila (horizontal) */
-    align-items: center; /* Centra los elementos verticalmente */
-    background-color: #fff; /* Fondo blanco */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
-    width: 100%; /* Las tarjetas ocupan todo el ancho disponible */
-    margin: 10px 0; /* Espaciado entre las tarjetas */
-    padding: 10px; /* Relleno dentro de las tarjetas */
-  }
-  
-.cardimage {
-    width: 150px; /* Fijamos el tamaño de la imagen */
-    height: auto; /* Mantiene la proporción de la imagen */
-    margin-right: 20px; /* Espaciado entre la imagen y el contenido */
-    border-radius: 5px; /* Bordes redondeados en la imagen */
-  }
-  
-.cardcontent {
-    display: flex;
-    flex-direction: column; /* Coloca el título y la descripción uno encima del otro */
-  }
-  
-.cardcontacto h3 {
-    font-size: 18px; /* Ajuste de tamaño del título */
-    margin-bottom: 5px; /* Espaciado debajo del título */
-  }
-  
-.cardcontacto p {
-    font-size: 14px; /* Ajuste del tamaño del texto */
-    color: #555; /* Color gris para la descripción */
-  }
-  
+
 
 /* CARRUSEL DE IMAGENES */
 .carrusel-full {
@@ -273,7 +241,7 @@ body {
     transition: all 0.3s;
 }
 
-.carousel-p{
+.carousel-p {
     font-size: 25px;
 }
 
@@ -320,15 +288,15 @@ body {
 /* TARJETAS - CARDS */
 .cardcontacto {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    text-align: right;
+    text-align: center;
     background-color: rgb(238, 237, 237);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease;
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     min-height: 400px;
     padding: 20px;
     border-radius: 10px;
@@ -345,70 +313,135 @@ body {
     /* Permite que el texto haga salto de línea */
     word-wrap: break-word;
     /* Asegura que el texto se ajuste dentro del contenedor */
-    text-align: right;
+    text-align: center;
     max-width: 100%;
 }
 
 .cardcontacto img {
-    width: 80%;
+    width: 100%;
     height: 150px;
     object-fit: cover;
     border-radius: 5px;
-    margin-right: 20px;
 }
-
 
 .cardcontacto p {
     flex-grow: 1;
     /* Expande el párrafo para igualar tamaños */
     min-height: 70px;
     overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .cardcontacto button {
     width: 90%;
     max-width: 200px;
-    align-self: flex-start; /* Alinea el botón a la izquierda */
-
 }
 
 .cardcontacto button:hover {
     color: white;
     font-weight: bold;
 }
+
 /*estilos para el formulario de contacto*/
 .contact-form {
-    max-width: 600px;
+    flex: 1 1 55%;
+    max-width: 800px;
     margin: 0 auto;
-    padding: 10px 80px ;
+    padding: 50px 20px;
     border-left: 1px solid #000;
-    margin-right: 50px; 
-    margin-top: 5px;
-  }
-  
+}
+
 .contact-form .form-control {
     margin-bottom: 15px;
-  }
-  
+    width: 100%;
+    /* Hace que el input ocupe todo el ancho disponible por defecto */
+}
+
 .contact-form .btn {
     width: 100%;
-  }
+}
+
 /*Estios para la geolocalizacion*/
 .contact-container {
     display: flex;
-    justify-content: flex-start; /* Alinea los elementos al inicio */
-    gap: 5px; /* Espacio entre el mapa y el formulario */
-    /*flex-wrap: wrap; /* Si la pantalla es pequeña, coloca los elementos en una nueva línea */
-    align-items: center; /* Centra verticalmente los elementos */
-    display: flex;
-    flex-direction: row;
-    
-  }
-  
-  .location-info iframe {
+    justify-content: space-between;
+    /* Mantiene los elementos alineados horizontalmente */
+    align-items: flex-start;
+    /* Alinea los elementos arriba */
+    gap: 30px;
+    /* Espacio entre los elementos */
+    flex-wrap: nowrap;
+    /* No permite que los elementos salten de línea */
+    max-width: 100%;
+    padding: 40px 20px;
+}
+
+.location-info iframe {
+    width: 100%;
+    /* Hace que el iframe ocupe todo el ancho disponible del contenedor */
+    height: 350px;
+    /* Ajusta la altura del mapa */
     border: 1px solid #ccc;
     border-radius: 8px;
-  }
+}
+
+.location-info {
+    flex: 1 1 45%;
+    /* El mapa ocupa el 45% del ancho disponible */
+}
+
+/* Estilos para la sección de información */
+.contact-info {
+    margin-top: 40px;
+    flex: 1 1 10%;
+    /* La información ocupa el 40% del espacio */
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    min-height: 410px;
+}
+
+.contact-info h3 {
+    margin-top: 5%;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Iconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+    font-size: 1.3rem;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 12%;
+    
+   
+}
+
+.social-icons a {
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+
+}
+
+.social-icons i {
+    font-size: 1.8rem;
+}
+
 
 /* CARRUSEL */
 .slick-slide {
@@ -485,7 +518,7 @@ h2 {
 }
 
 /* Responsivo para pantallas pequeñas */
-@media (max-width: 768px ) {
+@media (max-width: 768px) {
     .menu-options {
         display: none;
         flex-direction: column;
@@ -577,18 +610,55 @@ h2 {
         font-size: 0.9rem;
         padding: 8px 16px;
     }
-   
+
+    .contact-form .form-control {
+        width: 100%;
+        /* Asegura que el input ocupe el 100% del ancho en pantallas pequeñas */
+        max-width: 100%;
+        /* Asegura que no haya restricción de ancho máximo */
+        padding: 10px;
+        /* Aumenta el padding para hacerlo más espacioso */
+    }
+
+    .contact-container {
+        flex-direction: column;
+        /* Cambia a diseño en columna */
+        align-items: center;
+        /* Centra los elementos */
+        gap: 20px;
+        /* Reduce el espacio */
+    }
+
+    .contact-form {
+        flex: 1 1 100%; /* Ocupar todo el ancho disponible */
+        max-width: 100%; /* Ajustar el ancho sin tocar los bordes */
+        padding: 20px 5px; /* Aumentar el padding interno */
+        border-left: none; /* Eliminar el borde izquierdo */
+        width: 400px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .location-info {
+        order: -1;
+        /* Movemos el mapa arriba */
+    }
 }
+
 @media (min-width: 768px) {
     .title-container {
         padding: 50px 80px;
-        max-width: 40%; /* El título se hace más grande en pantallas más grandes */
-      }
-  
-    .carousel-title {
-      font-size: 3vw; /* Ajuste de tamaño para pantallas grandes */
+        max-width: 40%;
+        /* El título se hace más grande en pantallas más grandes */
     }
-  
+
+    .carousel-title {
+        font-size: 3vw;
+        /* Ajuste de tamaño para pantallas grandes */
+    }
+
 }
 
 /* Responsivo para pantallas pequeñas */
@@ -621,6 +691,5 @@ h2 {
         font-size: 1rem;
         padding: 10px 20px;
     }
-    
-}
 
+}

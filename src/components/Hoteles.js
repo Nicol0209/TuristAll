@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Paquetes.css";
+import "../styles/Hoteles.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
@@ -37,100 +37,18 @@ const Hoteles = () => {
 
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
-  };
+    localStorage.setItem("language", lang); // Para guardar el idioma en localStorage
+  };  
 
-  //Para redireccionamiento de todas la spaginas 
+  //Para redireccionamiento de todas la páginas 
   const handleRedirect = () => {
-    navigate('/Contacto'); // Redirige a /Contactos
-    navigate('/Paquetes'); //Regirige a paquetes 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+    navigate('/'); // Redirige a Inicio 
+    navigate('/Contacto'); // Redirige a Contactos
+    navigate('/Paquetes'); //Regirige a Paquetes 
+    navigate('/Ciudadesturisticas'); // Redirige a Ciudades Turisticas 
     navigate('/Restaurantes'); // Redirige a Restaurantes
-    navigate('/'); // Redirige a ciudades turisticas 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
-
-
-  };
-
-
-  // Configuración de los carrusel para las tarjetas
-  const carruselConfig = {
-    dots: true, // Muestra indicadores de navegación
-    infinite: true, // Se repite cuando llega al final
-    speed: 500, // Velocidad de transición
-    slidesToShow: 5, // Muestra 3 tarjetas en pantallas grandes
-    slidesToScroll: 1, // Se mueve de una en una
-    responsive: [
-      {
-        breakpoint: 1024, // Para tablets
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 768, // Para móviles
-        settings: { slidesToShow: 1 }
-      }
-    ]
-  };
-
-  const carrusel3Config = {
-    dots: true, // Muestra indicadores de navegación
-    infinite: false, // Se repite cuando llega al final
-    speed: 500, // Velocidad de transición
-    slidesToShow: 7, // Muestra 3 tarjetas en pantallas grandes
-    slidesToScroll: 1, // Se mueve de una en una
-    responsive: [
-      {
-        breakpoint: 1024, // Para tablets
-        settings: { slidesToShow: 2 }
-      },
-      {
-        breakpoint: 768, // Para móviles
-        settings: { slidesToShow: 1 }
-      }
-    ]
-  };
-
-  // Configuración carrusel de la imagen 
-  const carruselFullImagen = {
-    dots: false,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024, // Tablets
-        settings: { slidesToShow: 1 }
-      },
-      {
-        breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: false } // Ocultar dots en móviles
-      }
-    ]
-  };
-
-  const carruselFullImagen2 = {
-    dots: true,
-    infinite: true,
-    speed: 700,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 5000,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024, // Tablets
-        settings: { slidesToShow: 1 }
-      },
-      {
-        breakpoint: 768, // Móviles
-        settings: { slidesToShow: 1, dots: true }
-      }
-    ]
+    navigate('/Lugares'); // Redirige a Lugares 
+    navigate('/Hoteles'); // Redirige a Hoteles
   };
 
   // Función para cambiar la imagen de la bandera segun el idioma seleccionado
@@ -148,6 +66,7 @@ const Hoteles = () => {
 
   return (
     <div className="home-container">
+      <MigasdePan />
 
       {/* Menú Superior */}
       <header className="header">
@@ -202,18 +121,18 @@ const Hoteles = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <MigasdePan />
-
-        <div className="seccion2 shadow p-4 text-center">
-
-          <h2 className="text-start">{t("titleHoteles")}</h2>
-          {/* Carrusel de tarjetas seccion búsquedas*/}
-
-          <br /><br />
-
+        <div className="hero-container">
+          <img
+            src="/images/Contacto/Hoteles.jpg"
+            alt="Ciudades Turísticas"
+            className="hero-image"
+          />
+          <div className="hero-overlay">
+            <h2 className="hero-title">{t("titleHoteles")}</h2>
+          </div>
         </div>
+        <MigasdePan />
       </div>
-
       {/* Footer */}
       <Footer />
     </div>

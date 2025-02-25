@@ -58,9 +58,9 @@
     color: white;
 }
 
-.btn-twitter {
-    background-color: #129af5;
-    border-color: #129af5;
+.btn-microsoft {
+    background-color: #222222;
+    border-color: #ffffff;
     color: white;
     display: flex;
     align-items: center;
@@ -68,9 +68,9 @@
     gap: 10px;
 }
 
-.btn-twitter:hover{
-    background-color: #37aaf7;
-    border-color: #37aaf7;
+.btn-microsoft:hover{
+    background-color: #505152;
+    border-color: #3d3d3d;
     color: white;
 }
 

@@ -104,8 +104,8 @@ const Login = () => {
         </button>
 
         {/* Botón para autenticarse con Microsoft */}
-        <button onClick={loginWithMicrosoft} className="btn btn-twitter mt-2 w-100" disabled={user}>
-          <i className="fab fa-twitter"></i> {t("signInWithMicrosoft")}
+        <button onClick={loginWithMicrosoft} className="btn btn-microsoft mt-2 w-100" disabled={user}>
+          <i className="fab fa-microsoft"></i> {t("signInWithMicrosoft")}
         </button>
       </div>
     </div>

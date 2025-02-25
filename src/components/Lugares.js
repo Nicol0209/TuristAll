@@ -5,7 +5,7 @@ import { signOut } from "firebase/auth";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import "../styles/Paquetes.css";
+import "../styles/Lugares.css";
 import { useTranslation } from "react-i18next";
 import Slider from "react-slick";
 
@@ -37,21 +37,19 @@ const Lugares = () => {
 
   const handleLanguageChange = (lang) => {
     i18n.changeLanguage(lang);
+    localStorage.setItem("language", lang); // Para guardar el idioma en localStorage
   };
 
-  //Para redireccionamiento de todas la spaginas 
+  //Para redireccionamiento de todas la páginas 
   const handleRedirect = () => {
-    navigate('/Contacto'); // Redirige a /Contactos
-    navigate('/Paquetes'); //Regirige a paquetes 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
+    navigate('/'); // Redirige a Inicio 
+    navigate('/Contacto'); // Redirige a Contactos
+    navigate('/Paquetes'); //Regirige a Paquetes 
+    navigate('/Ciudadesturisticas'); // Redirige a Ciudades Turisticas 
     navigate('/Restaurantes'); // Redirige a Restaurantes
-    navigate('/'); // Redirige a ciudades turisticas 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
-    navigate('/Ciudadesturisticas'); // Redirige a ciudades turisticas 
-
-
+    navigate('/Lugares'); // Redirige a Lugares 
+    navigate('/Hoteles'); // Redirige a Hoteles
   };
-
 
   // Función para cambiar la imagen de la bandera segun el idioma seleccionado
   useEffect(() => {
@@ -68,6 +66,8 @@ const Lugares = () => {
 
   return (
     <div className="home-container">
+      <MigasdePan />
+
       {/* Menú Superior */}
       <header className="header">
         <div className="menu-up">
@@ -121,24 +121,18 @@ const Lugares = () => {
       <br />
       {/* Contenido Principal */}
       <div className="main-content">
-        <div className="seccion1">
-          <div className="carousel-slide">
-            {/* Imagen de fondo */}
-            <img
-              src="/images/Contacto/Cartagenacolombia.jpg"
-              alt={t("hero.title")}
-              className="full-img"
-            />
-            {/* Contenedor del texto */}
-            <div className="carousel-overlay">
-              <div className="title-container">
-                <h2 className="carousel-title">{t("hero.title")}</h2>
-              </div>
-            </div>
+        <div className="hero-container">
+          <img
+            src="/images/Contacto/Lugares.jpg"
+            alt="Ciudades Turísticas"
+            className="hero-image"
+          />
+          <div className="hero-overlay">
+            <h2 className="hero-title">{t("titleLugares")}</h2>
           </div>
         </div>
+        <MigasdePan />
       </div>
-
       {/* Footer */}
       <Footer />
     </div>
